@@ -1,0 +1,150 @@
+html, body {
+    touch-action: auto;
+}
+
+ul {
+	list-style-type: none;
+}
+.query-str {
+	width: 80%;
+	border-radius: 10px 0 0 10px;
+	padding: 10px;
+}
+
+.query-button {
+	width: 20%;
+	border-radius: 0 10px 10px 0;
+	padding: 10px;
+}
+.query-button:hover {
+	cursor: pointer;
+}
+
+.video-container {
+	position: fixed;
+	overflow-y: scroll;
+	word-wrap: break-word;
+
+	top: 80px;
+	left: 10%;
+	width: 80%;
+	height: 85%;
+	background-color: #03052d;
+	display: none;
+}
+
+.result-list {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	list-style-type: none; 
+}
+
+.result-container {
+	background-color: #d3eafc;
+	margin-top: 100px;
+}
+
+.result-list li{
+	width: 300px;
+	background-color: #29336b;
+	margin: 20px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.result-list li img{
+	border-radius: 10px 10px 0px 0px;
+}
+
+.result-list li:hover {
+	cursor: pointer;
+}
+
+.close-video-button {
+	float: right;
+}
+
+.query-wrapper {
+	position: fixed;
+	display: flex;	
+	width: 80%;
+	z-index: 2;
+	
+	left: 10%;
+	top: 30px;
+}
+
+.video-description {
+	display: flex;
+	color: #d79a89;
+	justify-content: space-between;
+}
+.video-name {
+	color: white;
+}
+.desc-video-list {
+	word-wrap: break-word;
+}
+
+.video-frame {
+	
+}
+
+.likes-list {
+	display: flex;
+	width: 40%;
+	justify-content: space-between;
+}
+
+.video-likes {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 20px;
+}
+
+.video-likes p, ul{
+	margin:0; 
+}
+.view-fl {
+	width: 20%;
+	display: flex;
+	justify-content: space-between;
+}
+.desc {}
+
+.loader {
+	position: fixed;
+	z-index: 3;
+	bottom: 5%;
+	left: 47%;
+	border: 8px solid rgb(234, 236, 255);
+	border-radius: 50%;
+	border-top: 8px solid black;
+	width: 40px;
+	height: 40px;
+	animation: spin 2s linear infinite;
+	display: none;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.video {
+	width: 100%;
+	height: 45vw;
+}
+
+.hilight {
+	color:#fdd9cf;
+} 
+@media screen and (max-width: 641px) {
+	.desc {
+		display: none;
+	}
+
+}
