@@ -1,5 +1,4 @@
-﻿
-function addBaseDesign() {
+﻿function addBaseDesign() {
 
     var body = document.getElementsByTagName("body")[0];
 
@@ -95,7 +94,7 @@ function addBaseDesign() {
 addBaseDesign();
 
 
-window.onscroll = function () {
+window.onscroll = function() {
     var sT = window.pageYOffset || document.documentElement.scrollTop;
     var cH = document.documentElement.clientHeight;
     var sH = document.documentElement.scrollHeight;
@@ -105,7 +104,7 @@ window.onscroll = function () {
 }
 
 function videoPanelOpen(videoID) {
-    return function (e) {
+    return function(e) {
         sendVideoQuery(videoID);
     }
 }
@@ -141,7 +140,7 @@ function sendQuery() {
     xhr.open('GET', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCPs_di_rybTRvpjjZmwTjiZtH3rYZVlbU&type=video&part=snippet&maxResults=15&q=' + query, true);
     //https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCTWC75i70moJLzyNh3tt4jzCljZcRkU8Y&id=nq4aU9gmZQk,REu2BcnlD34,qbPTdW7KgOg&part=snippet,statistics
     //xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCPs_di_rybTRvpjjZmwTjiZtH3rYZVlbU&id=nq4aU9gmZQk,REu2BcnlD34,qbPTdW7KgOg&part=snippet,statistics', true);
-    xhr.onload = function () {
+    xhr.onload = function() {
         var json = JSON.parse(this.responseText);
 
         nextToken = json.nextPageToken;
@@ -166,7 +165,7 @@ function sendQuery() {
         document.getElementsByClassName("loader")[0].style.display = "none";
     }
 
-    xhr.onerror = function () {
+    xhr.onerror = function() {
         document.getElementsByClassName("loader")[0].style.display = "none";
         alert('Error ' + this.status);
     }
@@ -181,7 +180,7 @@ function sendVideoQuery(videoID) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://www.googleapis.com/youtube/v3/videos?key=AIzaSyCPs_di_rybTRvpjjZmwTjiZtH3rYZVlbU&id=' + videoID + '&part=snippet,statistics', true);
 
-    xhr.onload = function () {
+    xhr.onload = function() {
 
         var json = JSON.parse(this.responseText);
         for (var i = 0; i < json.items.length; i++) {
@@ -210,12 +209,12 @@ function sendVideoQuery(videoID) {
 
         var fr = document.getElementsByClassName("video-frame")[0];
 
-        fr.innerHTML = '<iframe src="http://www.youtube.com/embed/' + videoID + '" class="video" frameborder="0" scrolling=no allowfullscreen></iframe>';
+        fr.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoID + '" class="video" frameborder="0" scrolling=no allowfullscreen></iframe>';
 
         document.getElementsByClassName("loader")[0].style.display = "none";
         document.getElementsByClassName("video-container")[0].style.display = "block";
     }
-    xhr.onerror = function () {
+    xhr.onerror = function() {
         document.getElementsByClassName("loader")[0].style.display = "none";
         alert('Ошибка ' + this.status);
     }
@@ -231,7 +230,7 @@ function sendMoreQuery() {
     var query = document.getElementsByClassName("query-str")[0].value;
 
     xhr.open('GET', 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyCPs_di_rybTRvpjjZmwTjiZtH3rYZVlbU&type=video&part=snippet&maxResults=15&q=' + query + '&pageToken=' + nextToken, true);
-    xhr.onload = function () {
+    xhr.onload = function() {
         var json = JSON.parse(this.responseText);
         nextToken = json.nextPageToken;
         for (var i = 0; i < json.items.length; i++) {
@@ -256,7 +255,7 @@ function sendMoreQuery() {
         document.getElementsByClassName("loader")[0].style.display = "none";
     }
 
-    xhr.onerror = function () {
+    xhr.onerror = function() {
         document.getElementsByClassName("loader")[0].style.display = "none";
         alert('Error ' + this.status);
     }
